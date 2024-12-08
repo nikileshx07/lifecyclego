@@ -1,0 +1,251 @@
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: url('images/jellyfish.jpg') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden; /* Prevent scrolling of the body itself */
+}
+
+/* Container for Left and Right sections */
+.container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Ensure container fills the viewport height */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Left Section */
+.left {
+    flex: 3; /* Left section takes up more space */
+    position: relative;
+    backdrop-filter: blur(5px); /* Apply blur only on the left side */
+    background: rgba(255, 255, 255, 0.5); /* Optional translucent overlay */
+    padding: 20px;
+    overflow-y: auto; /* Allow vertical scrolling */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    max-height: 100vh; /* Prevent the left section from exceeding the viewport height */
+}
+
+/* Right Section */
+.right {
+    flex: 1; /* Right section takes up less space */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3); /* Optional dark overlay to make buttons stand out */
+}
+
+/* Heading Styles */
+h1 {
+    color: #333;
+    font-size: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+}
+
+/* Paragraph Styling */
+p {
+    color: #333;
+    font-size: 0.9rem; /* Default font size */
+    text-align: center;
+    max-width: 80%;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+/* Image Styling */
+.center-image {
+    width: 40%; /* Default image size */
+    height: auto;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin-top: 40px;
+    animation: slide-in 2s ease-out forwards;
+}
+
+/* Slide-in animation */
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button Styling */
+a.back-button {
+    
+        padding: 8px 25px;
+        background: transparent;
+        outline: none;
+        border: 2px solid #fff;
+        border-radius: 20px;
+        color: #fff;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+    
+    
+}
+
+a.back-button:hover {
+    background-color: #45a049;
+}
+
+/* Media Queries for responsiveness */
+
+/* For tablets (up to 1024px wide, including portrait tablets) */
+@media (max-width: 1024px) {
+    .container {
+        flex-direction: column; /* Stack the left and right sections vertically */
+    }
+
+    .left {
+        backdrop-filter: blur(5px); /* Keep the blur effect unchanged */
+        background: rgba(255, 255, 255, 0.7); /* Make the overlay slightly more opaque */
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8rem; /* Smaller heading */
+    }
+
+    p {
+        font-size: 1rem; /* Increase font size slightly */
+        max-width: 90%; /* Ensure paragraph width is readable */
+    }
+
+    .center-image {
+        width: 50%; /* Adjust image size */
+        margin-top: 30px;
+    }
+
+    .right {
+        padding: 15px; /* Reduce padding in the right section */
+    }
+}
+
+/* For small devices (phones in portrait mode up to 768px) */
+@media (max-width: 768px) {
+    .left {
+        padding: 10px; /* Reduce padding */
+    }
+
+    h1 {
+        font-size: 1.6rem; /* Reduce heading size */
+    }
+
+    p {
+        font-size: 0.95rem; /* Reduce text size */
+        line-height: 1.4;
+    }
+
+    .center-image {
+        width: 60%; /* Further reduce image size */
+        margin-top: 20px;
+    }
+
+    .right {
+        padding: 10px;
+    }
+
+    a.back-button {
+        width: 180px; /* Adjust button width */
+    }
+}
+
+/* For extra small devices (very small phones, max-width: 480px) */
+@media (max-width: 480px) {
+    .left {
+        padding: 8px; /* Reduce padding even more */
+    }
+
+    h1 {
+        font-size: 1.4rem; /* Further reduce heading size */
+    }
+
+    p {
+        font-size: 0.9rem; /* Adjust text size for smaller screens */
+    }
+
+    .center-image {
+        width: 70%; /* Adjust image to fill more space */
+        margin-top: 15px;
+    }
+
+    .right {
+        padding: 8px; /* Less padding */
+    }
+
+    a.back-button {
+        width: 160px; /* Adjust button width */
+    }
+}
+
+/* For very small devices (phones in landscape mode, max-width: 360px) */
+@media (max-width: 360px) {
+    .left {
+        padding: 5px; /* Minimal padding */
+    }
+
+    h1 {
+        font-size: 1.2rem; /* Minimize heading size */
+    }
+
+    p {
+        font-size: 0.85rem; /* Make text even smaller */
+    }
+
+    .center-image {
+        width: 80%; /* Image takes up most of the available space */
+    }
+
+    .right {
+        padding: 5px; /* Minimal padding */
+    }
+
+    a.back-button {
+        width: 140px; /* Adjust button width */
+    }
+}
+
+/* Avoid content overflow on very small devices (max-width: 320px) */
+@media (max-width: 320px) {
+    .container {
+        flex-direction: column; /* Stack elements vertically */
+        margin: 0 5px; /* Prevent horizontal overflow */
+    }
+
+    .left {
+        padding: 5px;
+    }
+
+    .center-image {
+        width: 100%; /* Ensure image fits on very small screens */
+    }
+
+    .right {
+        padding: 5px; /* Minimal padding */
+    }
+
+    a.back-button {
+        width: 100%; /* Full-width buttons on very small screens */
+    }
+}
